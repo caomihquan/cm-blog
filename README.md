@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1. Trang Home: Danh sách bài viết
 
-## Getting Started
+- Hiển thị bài viết mới nhất
 
-First, run the development server:
+- Có phân trang (pagination) hoặc infinite scroll
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Mỗi bài có:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Ảnh thumbnail
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Title
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Short description
 
-## Learn More
+- Tác giả + Ngày viết
 
-To learn more about Next.js, take a look at the following resources:
+👉 Kỹ năng áp dụng:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- getStaticProps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Dynamic routing
 
-## Deploy on Vercel
+- SEO tối ưu Home page (Next SEO)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Trang Chi tiết bài viết
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Hiển thị toàn bộ nội dung bài viết
+
+- Format Markdown đẹp (hoặc CMS đẩy về)
+
+- Có:
+
+- Thẻ tags
+
+- Tác giả
+
+- Bài viết liên quan (related posts)
+
+👉 Kỹ năng áp dụng:
+
+- Dynamic route /post/[slug].js
+
+- getStaticPaths để build từng bài viết
+
+- Markdown parsing (remark hoặc react-markdown)
+
+- Tối ưu SEO cho từng bài (title, description meta tag)
+
+3. Trang Tag
+
+- Ví dụ /tag/nextjs → hiện tất cả bài thuộc thẻ Next.js
+
+- Có bộ lọc bài viết theo Tag
+
+👉 Kỹ năng áp dụng:
+
+- Dynamic route /tag/[tag].js
+
+- URL params
+
+- Filter data theo tag
+
+4. Search bài viết
+
+- Ô search → gõ từ khóa → tìm bài theo tiêu đề hoặc nội dung
+
+👉 Kỹ năng áp dụng:
+
+- Client-side filtering
+
+- Debounce search (tối ưu performance)
+
+5. Dark Mode
+
+- Toggle Dark/Light theme
+
+👉 Kỹ năng áp dụng:
+
+- TailwindCSS Dark Mode
+
+- State Management (Context API hoặc useState)
+
+6. Responsive Design
+
+- Mobile, Tablet, Desktop đều đẹp
+
+👉 Kỹ năng áp dụng:
+
+- TailwindCSS hoặc CSS Modules
+
+- Flex/Grid layout
+
+- Mobile-first design
+
+7. SEO Tối ưu
+
+- Mỗi page đều có title/description riêng
+
+- OpenGraph image (khi share Facebook/Linkedin đẹp)
+
+👉 Kỹ năng áp dụng:
+
+- next/head
+
+- Hoặc dùng thư viện next-seo

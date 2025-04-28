@@ -1,0 +1,119 @@
+import Link from "next/link";
+
+export default function Header() {
+  return (
+    <header className="bg-gray-800 text-white">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center mb-4 md:mb-0">
+            <Link href="/">
+              <span className="text-xl font-bold cursor-pointer">CM Blog</span>
+            </Link>
+            <nav className="ml-8 hidden md:block">
+              <ul className="flex space-x-6">
+                <li>
+                  <Link href="/">
+                    <span className="hover:text-blue-300 cursor-pointer">
+                      Home
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories">
+                    <span className="hover:text-blue-300 cursor-pointer">
+                      Categories
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about">
+                    <span className="hover:text-blue-300 cursor-pointer">
+                      About
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <span className="hover:text-blue-300 cursor-pointer">
+                      Contact
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
+            <div className="relative w-full md:w-64 bg-white rounded-lg shadow-md">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button className="absolute right-2 top-3 text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="flex space-x-2">
+              <Link href="/login">
+                <span className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg cursor-pointer">
+                  Login
+                </span>
+              </Link>
+              <Link href="/register">
+                <span className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg cursor-pointer">
+                  Register
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu (hidden on desktop) */}
+        <nav className="mt-4 block md:hidden">
+          <ul className="flex flex-col space-y-2">
+            <li>
+              <Link href="/">
+                <span className="hover:text-blue-300 cursor-pointer">Home</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/categories">
+                <span className="hover:text-blue-300 cursor-pointer">
+                  Categories
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <span className="hover:text-blue-300 cursor-pointer">
+                  About
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact">
+                <span className="hover:text-blue-300 cursor-pointer">
+                  Contact
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+}

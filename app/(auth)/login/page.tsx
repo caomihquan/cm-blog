@@ -1,0 +1,162 @@
+import { signInAction } from "@/app/_lib/actions";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function PageLogin() {
+  return (
+    <div className="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="flex justify-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 text-2xl font-bold text-white">
+            $
+          </div>
+        </div>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Welcome to CM-Blog
+        </h2>
+        <p className="mt-2 text-center text-sm text-gray-600">
+          Log in to access your blogs
+        </p>
+      </div>
+
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+          <form className="space-y-6">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email address
+              </label>
+              <div className="mt-1">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500 focus:outline-none"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
+              <div className="mt-1">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500 focus:outline-none"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none"
+              >
+                Login
+              </button>
+              <Link
+                className="mt-4 flex justify-center text-sm text-green-500 decoration-1"
+                href="/"
+              >
+                Back to Main
+              </Link>
+            </div>
+          </form>
+
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="bg-white px-2 text-gray-500">
+                  Or continue with
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              <div>
+                <form action={signInAction}>
+                  <button className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
+                    <Image
+                      src="https://authjs.dev/img/providers/google.svg"
+                      alt="Google logo"
+                      height="20"
+                      width="20"
+                    />
+                  </button>
+                </form>
+              </div>
+
+              <div>
+                <a
+                  href="#"
+                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                >
+                  <span className="sr-only">Sign in with Apple</span>
+                  <div className="h-5 w-5 text-center">A</div>
+                </a>
+              </div>
+
+              <div>
+                <a
+                  href="#"
+                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                >
+                  <span className="sr-only">Sign in with Facebook</span>
+                  <div className="h-5 w-5 text-center">F</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Don&lsquo;t have an account?{" "}
+              <Link
+                href="/signup"
+                className="font-medium text-green-600 hover:text-green-500"
+              >
+                Sign up for free
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-8 text-center">
+        <p className="text-xs text-gray-500">
+          © 2025 MoneyTrack. All rights reserved.
+        </p>
+        <div className="mt-2 flex justify-center space-x-4">
+          <a href="#" className="text-xs text-gray-500 hover:text-gray-700">
+            Privacy Policy
+          </a>
+          <a href="#" className="text-xs text-gray-500 hover:text-gray-700">
+            Terms of Service
+          </a>
+          <a href="#" className="text-xs text-gray-500 hover:text-gray-700">
+            Contact Support
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
