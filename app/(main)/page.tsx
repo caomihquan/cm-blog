@@ -1,12 +1,8 @@
 import Link from "next/link";
 import imageFake from "@/public/images/about-1.jpg";
 import Image from "next/image";
-import { getServerSession } from "next-auth";
-import { authConfig } from "../_lib/auth";
 
 export default async function Home() {
-  const session = await getServerSession(authConfig);
-  console.log("session11", session);
   const newestPosts = [
     {
       id: 1,

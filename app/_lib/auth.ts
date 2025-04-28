@@ -1,33 +1,31 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { createAuthor, getAuthor } from "./data-service";
 
 const authConfig = {
   providers: [
     Google({
-      clientId:process.env.GOOGLE_CLIENT_ID || "GOOGLE_CLIENT_ID",
-      clientSecret:process.env.GOOGLE_CLIENT_SECRET || "GOOGLE_CLIENT_SECRET",
+      clientId:process.env.AUTH_GOOGLE_ID || "GOOGLE_CLIENT_ID",
+      clientSecret:process.env.AUTH_GOOGLE_SECRET || "GOOGLE_CLIENT_SECRET",
     }),
   ],
   callbacks: {
     async signIn({ user, account, profile }:any) {
       console.log("signIn", user , account,profile);
       try {
-        //const existingGuest = await getGuest(user.email);
-
-        // if (!existingGuest)
-        //   await createGuest({ email: user.email, fullName: user.name });
-
+        const existingGuest = await getAuthor(user.email);
+        if (!existingGuest)
+          await createAuthor({ email: user.email, name: user.name,image: user.image });
         return true;
       } catch {
         return false;
       }
     },
-    async session({session, token, user }:any) {
+    async session({session, user }:any) {
       console.log("auth", user , session);
-      // const guest = await getGuest(session.user.email);
-      // session.user.guestId = guest.id;
-      session.accessToken = token.accessToken
-      session.user.id = "123"
+      const guest = await getAuthor(session.user.email);
+      session.user.authorId = guest.id;
+      session.user.image = guest.image;
       return session;
     },
   },
